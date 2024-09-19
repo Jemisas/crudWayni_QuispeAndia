@@ -24,7 +24,7 @@ Este proyecto es una aplicación web ASP.NET Core que implementa un sistema CRUD
 }
 ```
 
-5. Listo prueba todas las funcionalidades
+4. Listo prueba todas las funcionalidades
 
 ### Validaciones tomadas en cuenta
 
