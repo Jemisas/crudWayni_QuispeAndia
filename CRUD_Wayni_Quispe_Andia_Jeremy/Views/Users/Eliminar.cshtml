@@ -1,0 +1,28 @@
+@model User
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<h2>Eliminar Usuario</h2>
+
+<p>¿Estás seguro de que deseas eliminar este usuario?</p>
+
+<div>
+    <strong>Nombre: </strong> @Model.Nombre <br />
+    <strong>Apellido: </strong> @Model.Apellido <br />
+    <strong>DNI: </strong> @Model.DNI <br />
+</div>
+
+<form asp-action="Eliminar" method="post">
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="/Users" class="btn btn-secondary">Cancelar</a>
+</form>
+
+
+@section Scripts {
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            window.location.href = '/';
+        });
+    </script>
+}

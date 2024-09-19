@@ -1,0 +1,60 @@
+﻿@model IEnumerable<User>
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<div class="header">
+    <div class="red-shape"></div>
+</div>
+
+<a href="/Users/Crear" class="btn btn-primary" style="margin-left: 1.5rem">Crear Nuevo Usuario</a>
+
+
+<div class="user-grid">
+    @foreach (var usuario in Model)
+    {
+    <div class="user-card" onclick="openModal('@usuario.Nombre', '@usuario.Apellido', '@usuario.DNI', '@usuario.Id')">
+        <strong>@usuario.Nombre @usuario.Apellido</strong><br />
+        <span>DNI: @usuario.DNI</span>
+    </div>
+    }
+</div>
+
+<div id="userModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalUserName"></h2>
+        <p><strong>DNI: </strong><span id="modalDNI"></span></p>
+
+        <div class="user-actions">
+            <a id="editLink" href="" class="btn btn-secondary">Editar</a>
+            <form id="deleteForm" asp-action="Eliminar" method="post" style="display:inline;">
+                <input id="deleteUserId" type="hidden" name="id" value="" />
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(nombre, apellido, dni, id) {
+        document.getElementById('userModal').style.display = 'block';
+
+        document.getElementById('modalUserName').innerText = nombre + ' ' + apellido;
+        document.getElementById('modalDNI').innerText = dni;
+
+        document.getElementById('editLink').href = '/Users/Editar/' + id;
+        document.getElementById('deleteUserId').value = id;
+    }
+
+    function closeModal() {
+        document.getElementById('userModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById('userModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
