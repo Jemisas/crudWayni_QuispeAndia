@@ -1,4 +1,4 @@
-# CRUD_Wayni_Quispe_Andia_Jeremy
+# CRUD - Wayni - Quispe Andia Jeremy Joel 
 
 ## Descripción del Proyecto
 Este proyecto es una aplicación web ASP.NET Core que implementa un sistema CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar usuarios. La aplicación interactúa con una base de datos MySQL y tiene validaciones para nombres, apellidos y DNI.
@@ -15,12 +15,16 @@ Este proyecto es una aplicación web ASP.NET Core que implementa un sistema CRUD
    git clone https://github.com/Jemisas/crudWayni_QuispeAndia.git
 2. Abre el proyecto en Rider.
 3. Configura la cadena de conexión en el archivo appsettings.json:
+   
+```c#
 {
   "ConnectionStrings": {
     "DefaultConnection": "server=localhost;user=root;password=tu_contraseña;database=crud_db"
   }
 }
-4. Listo prueba todas las funcionalidades
+```
+
+5. Listo prueba todas las funcionalidades
 
 ### Validaciones tomadas en cuenta
 
